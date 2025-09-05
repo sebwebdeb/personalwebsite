@@ -5,7 +5,7 @@ export const Home = () => {
   return (
     <div className="site-wrapper">
       {/* Header */}
-      <header className="header">
+      <header className="header header--sticky">
         <div className="header__logo">{/* Logo */}
           <svg className="logo-icon" width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M19.5 6.5C19.5 6.5 21.5 6.5 21.5 8.5C21.5 10.5 19.5 10.5 19.5 10.5H16.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -18,6 +18,7 @@ export const Home = () => {
           <a href="#about">My Journey</a>
           <a href="#services">My Roadmap</a>
           <Link to="/blog">Blog</Link>
+          <a href="/resume.pdf" target="_blank" className="header__resume-btn">Resume</a>
           <a href="#contact" className="header__contact-btn">Contact Me</a>
         </nav>
       </header>

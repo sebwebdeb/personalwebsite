@@ -20,6 +20,7 @@ export const BlogPage = () => {
           <Link to="/#about">My Journey</Link>
           <Link to="/#services">My Roadmap</Link>
           <Link to="/blog">Blog</Link>
+          <a href="/resume.pdf" target="_blank" className="header__resume-btn">Resume</a>
           <Link to="/#contact" className="header__contact-btn">Contact Me</Link>
         </nav>
       </header>

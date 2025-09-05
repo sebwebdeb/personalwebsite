@@ -62,6 +62,43 @@ body, html, #root, .site-wrapper {
   background: linear-gradient(135deg, #442952 0%, #2D3E50 100%);
 }
 
+/* Resume Button Styling */
+.header__resume-btn {
+  background: transparent;
+  color: #2D3E50 !important;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  margin-left: 2rem;
+  font-weight: 600;
+  border: 2px solid #2D3E50;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.header__resume-btn:hover {
+  background: #2D3E50;
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 62, 80, 0.2);
+}
+
+/* Sticky Header (only for home page) */
+.header--sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header--sticky + * {
+  margin-top: 80px; /* Offset for fixed header */
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -1318,6 +1355,57 @@ body, html, #root, .site-wrapper {
   color: #222;
   font-weight: 500;
   transition: color 0.2s;
+}
+
+/* Mobile Header Navigation */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .header__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .header__nav a {
+    margin-left: 0;
+    margin: 0.25rem;
+    font-size: 0.9rem;
+  }
+  
+  .header__resume-btn,
+  .header__contact-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    margin-left: 0;
+    margin: 0.25rem;
+  }
+  
+  .header--sticky + * {
+    margin-top: 120px; /* Increased offset for wrapped mobile header */
+  }
+}
+
+@media (max-width: 480px) {
+  .header__nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .header__nav a {
+    margin: 0;
+  }
+  
+  .header--sticky + * {
+    margin-top: 160px; /* Further increased for stacked mobile header */
+  }
 }
 
 /* Responsive Design for Blog Articles */
