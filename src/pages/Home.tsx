@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BlogPreview } from '../components/Blog/BlogPreview';
+import { ContactForm } from '../components/ContactForm';
 
 export const Home = () => {
   return (
@@ -136,26 +137,7 @@ export const Home = () => {
         <h2 className="contact__heading">Let's Talk Tech</h2>
         <p className="contact__subtitle">Whether you want to discuss the future of cloud, dive into a technical project, or just connect with a fellow tech enthusiast, my inbox is always open.</p>
         <div className="contact__content">
-          <form className="contact__form">
-            <h3 className="contact__form-title">Send a Message</h3>
-            <label>
-              Full Name
-              <input type="text" name="name" placeholder="Your Name" required />
-            </label>
-            <label>
-              Email Address
-              <input type="email" name="email" placeholder="your.email@example.com" required />
-            </label>
-            <label>
-              Subject (Optional)
-              <input type="text" name="subject" placeholder="e.g., IT Consultation Inquiry" />
-            </label>
-            <label>
-              Your Message
-              <textarea name="message" placeholder="Describe your project or question here..." rows={4} required></textarea>
-            </label>
-            <button type="submit" className="contact__form-btn">Send Message</button>
-          </form>
+          <ContactForm />
           <div className="contact__info">
             <div className="contact__info-card">
               <h4>Direct Contact Information</h4>
