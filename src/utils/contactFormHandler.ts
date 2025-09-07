@@ -10,7 +10,7 @@ interface ContactFormResponse {
   message: string;
 }
 
-const FUNCTION_ENDPOINT = 'https://personal-website-email-function.azurewebsites.net/api/sendContactEmail';
+const FUNCTION_ENDPOINT = '/api/contact-form';
 
 export async function submitContactForm(formData: ContactFormData): Promise<ContactFormResponse> {
   try {

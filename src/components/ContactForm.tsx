@@ -1,4 +1,4 @@
-import React, { useState, FormEvent } from 'react';
+import React, { useState, type FormEvent } from 'react';
 import { submitContactForm, validateContactForm } from '../utils/contactFormHandler';
 
 interface ContactFormData {
@@ -73,7 +73,7 @@ export const ContactForm: React.FC = () => {
           message: result.message
         });
       }
-    } catch (error) {
+    } catch (_error) {
       setSubmitStatus({
         type: 'error',
         message: 'An unexpected error occurred. Please try again.'

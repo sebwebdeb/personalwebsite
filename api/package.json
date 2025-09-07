@@ -1,0 +1,22 @@
+{
+  "name": "personal-website-api",
+  "version": "1.0.0",
+  "description": "Contact form API for personal website static web app",
+  "main": "dist/contact-form/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.5.1",
+    "nodemailer": "^6.9.14"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.15",
+    "@types/node": "^20.14.15",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
