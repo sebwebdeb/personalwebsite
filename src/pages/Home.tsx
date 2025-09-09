@@ -5,6 +5,11 @@ import { ContactForm } from '../components/ContactForm';
 export const Home = () => {
   return (
     <div className="site-wrapper">
+      <div className="mobile-backdrop" onClick={() => {
+        document.querySelector('.header__nav')?.classList.remove('active');
+        document.querySelector('.header__hamburger')?.classList.remove('active');
+        document.querySelector('.mobile-backdrop')?.classList.remove('active');
+      }}></div>
       {/* Header */}
       <header className="header header--sticky">
         <div className="header__logo">{/* Logo */}
@@ -15,12 +20,36 @@ export const Home = () => {
           </svg>
           <span className="logo-text">Sebastian Mateus</span>
         </div>
+        <button className="header__hamburger" onClick={() => {
+          const nav = document.querySelector('.header__nav');
+          const hamburger = document.querySelector('.header__hamburger');
+          const backdrop = document.querySelector('.mobile-backdrop');
+          nav?.classList.toggle('active');
+          hamburger?.classList.toggle('active');
+          backdrop?.classList.toggle('active');
+        }}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
         <nav className="header__nav">
-          <a href="#about">My Journey</a>
-          <a href="#services">My Roadmap</a>
-          <Link to="/blog">Blog</Link>
+          <a href="#about" onClick={() => {
+            document.querySelector('.header__nav')?.classList.remove('active');
+            document.querySelector('.header__hamburger')?.classList.remove('active');
+          }}>My Journey</a>
+          <a href="#services" onClick={() => {
+            document.querySelector('.header__nav')?.classList.remove('active');
+            document.querySelector('.header__hamburger')?.classList.remove('active');
+          }}>My Roadmap</a>
+          <Link to="/blog" onClick={() => {
+            document.querySelector('.header__nav')?.classList.remove('active');
+            document.querySelector('.header__hamburger')?.classList.remove('active');
+          }}>Blog</Link>
           <a href="/resume.pdf" target="_blank" className="header__resume-btn">Resume</a>
-          <a href="#contact" className="header__contact-btn">Contact Me</a>
+          <a href="#contact" className="header__contact-btn" onClick={() => {
+            document.querySelector('.header__nav')?.classList.remove('active');
+            document.querySelector('.header__hamburger')?.classList.remove('active');
+          }}>Contact Me</a>
         </nav>
       </header>
 
