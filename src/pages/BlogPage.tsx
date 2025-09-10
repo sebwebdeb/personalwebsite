@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { BlogList } from '../components/Blog/BlogList';
+import { ContactModal } from '../components/ContactModal';
 
 export const BlogPage = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
     <div className="site-wrapper">
       {/* Header */}
@@ -21,7 +24,12 @@ export const BlogPage = () => {
           <Link to="/#services">My Roadmap</Link>
           <Link to="/blog">Blog</Link>
           <a href="/resume.pdf" target="_blank" className="header__resume-btn">Resume</a>
-          <Link to="/#contact" className="header__contact-btn">Contact Me</Link>
+          <button 
+            onClick={() => setIsContactModalOpen(true)} 
+            className="header__contact-btn"
+          >
+            Contact Me
+          </button>
         </nav>
       </header>
 
@@ -49,6 +57,12 @@ export const BlogPage = () => {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 };
