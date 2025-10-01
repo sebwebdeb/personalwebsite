@@ -1,0 +1,35 @@
+# Bicep build outputs
+*.json
+
+# Deployment outputs
+deployment-outputs.json
+
+# Terraform state files (if switching to Terraform later)
+*.tfstate
+*.tfstate.*
+
+# Local environment files
+.env
+.env.local
+*.local
+
+# Secrets and sensitive data
+*secret*
+*password*
+*key*
+
+# Exception: Allow parameter files (they shouldn't contain secrets)
+!parameters/*.bicepparam
+!parameters/*.json
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup

@@ -1,4 +1,5 @@
 import { useParams, Link, Navigate } from 'react-router-dom';
+import { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -8,10 +9,12 @@ import { getPostBySlug } from '../../utils/blogUtils';
 import { ArticleHeader } from './ArticleHeader';
 import { TableOfContents } from './TableOfContents';
 import { ReadingProgress } from './ReadingProgress';
+import { ContactModal } from '../ContactModal';
 
 export const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const post = slug ? getPostBySlug(blogPosts, slug) : undefined;
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   if (!post) {
     return <Navigate to="/blog" replace />;
@@ -43,7 +46,12 @@ export const BlogPost = () => {
           <Link to="/#services">My Roadmap</Link>
           <Link to="/blog">Blog</Link>
           <a href="/resume.pdf" target="_blank" className="header__resume-btn">Resume</a>
-          <Link to="/#contact" className="header__contact-btn">Contact Me</Link>
+          <button 
+            onClick={() => setIsContactModalOpen(true)} 
+            className="header__contact-btn"
+          >
+            Contact Me
+          </button>
         </nav>
       </header>
       
@@ -150,6 +158,12 @@ export const BlogPost = () => {
           </div>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </div>
   );
 };
